@@ -7,10 +7,14 @@ const postsRoutes = require('./routes/api/posts');
 
 const app = express();
 
+//BodyParser Middleware
+app.use(express.json());
+
 //Connect to MongoDB
 mongoose.connect(MONGO_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
+    useFindAndModify: false
 })
 
     .then(() => console.log('MongoDB connected!'))
